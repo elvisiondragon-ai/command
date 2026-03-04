@@ -386,9 +386,9 @@ function RequestItem({ item, idx, t, onChange }) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// APP
+// PAGE
 // ═══════════════════════════════════════════════════════════════════════════════
-export default function App() {
+export default function LostPage() {
   const [lang, setLang] = useState(() => load("lang", "id"));
   const t = T[lang];
 
