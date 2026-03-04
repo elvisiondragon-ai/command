@@ -1,0 +1,86 @@
+{
+  "metrics": [
+    {
+      "label": "Amount Spent",
+      "value": "Rp 226,532",
+      "icon": "DollarSign",
+      "color": "text-accent"
+    },
+    {
+      "label": "Conv. Value",
+      "value": "Rp 846,000",
+      "icon": "TrendingUp",
+      "color": "text-emerald"
+    },
+    {
+      "label": "Purchases",
+      "value": "4",
+      "icon": "Target",
+      "color": "text-emerald"
+    },
+    {
+      "label": "CPR",
+      "value": "Rp 56,633",
+      "icon": "Megaphone",
+      "color": "text-warning"
+    },
+    {
+      "label": "Link Clicks",
+      "value": "62",
+      "icon": "MousePointer",
+      "color": "text-secondary"
+    },
+    {
+      "label": "Reach",
+      "value": "1,590",
+      "icon": "Megaphone",
+      "color": "text-muted-foreground"
+    },
+    {
+      "label": "Impressions",
+      "value": "1,861",
+      "icon": "Megaphone",
+      "color": "text-muted-foreground"
+    },
+    {
+      "label": "CPC",
+      "value": "Rp 3,654",
+      "icon": "Target",
+      "color": "text-warning"
+    },
+    {
+      "label": "CTR",
+      "value": "3.33%",
+      "icon": "MousePointer",
+      "color": "text-secondary"
+    }
+  ],
+  "campaigns": [
+    {
+      "name": "DarkFem",
+      "status": "active",
+      "spend": 175048.0,
+      "budget": "IDR 175,048",
+      "leads": 1311,
+      "sales": 4
+    },
+    {
+      "name": "darkfem_sg",
+      "status": "active",
+      "spend": 35969.0,
+      "budget": "IDR 35,969",
+      "leads": 76,
+      "sales": 0
+    },
+    {
+      "name": "darkfem_ph",
+      "status": "active",
+      "spend": 15515.0,
+      "budget": "IDR 15,515",
+      "leads": 203,
+      "sales": 0
+    }
+  ],
+  "period": "TODAY AND YESTERDAY",
+  "last_updated": "2026-03-04 21:09"
+}

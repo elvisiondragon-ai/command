@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 5%;
+    --foreground: 220 20% 92%;
+
+    --card: 240 8% 9%;
+    --card-foreground: 220 20% 92%;
+
+    --popover: 240 8% 9%;
+    --popover-foreground: 220 20% 92%;
+
+    --primary: 155 100% 50%;
+    --primary-foreground: 240 10% 5%;
+
+    --secondary: 270 91% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 6% 14%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 16%;
+    --input: 240 6% 16%;
+    --ring: 155 100% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 220 10% 55%;
+    --sidebar-primary: 155 100% 50%;
+    --sidebar-primary-foreground: 240 10% 5%;
+    --sidebar-accent: 240 6% 12%;
+    --sidebar-accent-foreground: 220 20% 92%;
+    --sidebar-border: 240 6% 14%;
+    --sidebar-ring: 155 100% 50%;
+
+    /* Custom tokens */
+    --emerald: 155 100% 50%;
+    --purple: 270 91% 65%;
+    --ads-blue: 217 91% 60%;
+    --warning: 38 92% 50%;
+    --glass-bg: 240 8% 9%;
+    --glass-border: 240 6% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-outfit antialiased;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-glass-border rounded-xl;
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 20px hsl(155 100% 50% / 0.15), 0 0 60px hsl(155 100% 50% / 0.05);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px hsl(270 91% 65% / 0.15), 0 0 60px hsl(270 91% 65% / 0.05);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px hsl(217 91% 60% / 0.15), 0 0 60px hsl(217 91% 60% / 0.05);
+  }
+
+  .text-gradient-emerald {
+    @apply bg-gradient-to-r from-emerald to-emerald/70 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-purple to-purple/70 bg-clip-text text-transparent;
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-running {
+    @apply bg-emerald animate-pulse;
+  }
+
+  .status-idle {
+    @apply bg-muted-foreground;
+  }
+
+  .status-error {
+    @apply bg-destructive animate-pulse;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, hsl(155 100% 50% / 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
