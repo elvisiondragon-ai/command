@@ -28,7 +28,7 @@ const App = () => (
             <Route path="/pipeline" element={<ProtectedRoute><Index /></ProtectedRoute>} />
             <Route path="/analytics" element={<ProtectedRoute><Index /></ProtectedRoute>} />
             <Route path="/ads" element={<ProtectedRoute><AdsHubPage /></ProtectedRoute>} />
-            <Route path="/lost" element={<ProtectedRoute><LostPage /></ProtectedRoute>} />
+            <Route path="/lost" element={<LostPage />} />
             <Route path="/research" element={<ProtectedRoute><Index /></ProtectedRoute>} />
             <Route path="/insights" element={<ProtectedRoute><Index /></ProtectedRoute>} />
             <Route path="/assets" element={<ProtectedRoute><Index /></ProtectedRoute>} />

@@ -45,6 +45,7 @@ const DATE_OPTIONS: { key: string; label: string }[] = [
     { key: "today_and_yesterday", label: "Today & Yesterday" },
     { key: "last_7d", label: "7 Days" },
     { key: "last_30d", label: "30 Days" },
+    { key: "maximum", label: "Maximum" },
 ];
 
 // ── Ad Table Row ──────────────────────────────────────────────
@@ -239,67 +240,86 @@ function NewCampaignReport({ campaign }: { campaign: CampaignData }) {
     );
 }
 
-// ── ID Campaign Analysis (existing deep report) ──────────────
+// ── ID Campaign Analysis — Updated 2026-03-05 ────────────────
 function IDCampaignReport() {
     return (
         <div className="space-y-4">
-            {/* What's Working */}
+            {/* Winners */}
             <div className="rounded-xl bg-emerald/5 border border-emerald/20 p-4">
                 <p className="text-xs font-bold text-emerald mb-3 flex items-center gap-2"><CheckCircle className="w-4 h-4" /> 1. What Is Working &amp; Why</p>
                 <div className="space-y-3 text-[11px] text-muted-foreground leading-relaxed">
-                    <div className="border-l-2 border-emerald/50 pl-3"><p className="font-semibold text-foreground">🥇 DF_Secret_Ilmu_Tak_Pernah_Diajarkan — 91% budget share, CTR 5.02% · Rp 160K / 175K total</p><p className="mt-0.5"><span className="text-emerald font-medium">Hook angle:</span> "Forbidden Knowledge" — triggers <strong>loss aversion + exclusivity psychology</strong>. Avatar feels deliberately kept ignorant. ROAS 4.83x confirmed — this ad is carrying the entire campaign.</p></div>
-                    <div className="border-l-2 border-emerald/30 pl-3"><p className="font-semibold text-foreground">🥈 DF_SocietyLie_Aturan_Bohong — CTR 12.93% (highest raw CTR)</p><p className="mt-0.5"><span className="text-emerald font-medium">Hook:</span> Betrayal + Anger — "Society lied to you". Starved of budget by DF_Secret dominance. Likely to emerge stronger once DF_Ghosted is paused.</p></div>
-                    <div className="border-l-2 border-emerald/30 pl-3"><p className="font-semibold text-foreground">🥉 DF_WakeUp_Bukan_Kurang_Cantik — CTR 11.54%</p><p className="mt-0.5"><span className="text-emerald font-medium">Hook:</span> Identity Reframe — destroys insecurity. High CTR validates avatar pain. Second candidate to emerge after ghost removal.</p></div>
-                    <div className="p-2 rounded-lg bg-emerald/10 text-emerald font-medium">🏆 <strong>ROAS 4.83x CONFIRMED SCALABLE</strong> — Forbidden Knowledge hook dominates. 4 purchases in 2 days. Ready to scale budget.</div>
+                    <div className="border-l-2 border-emerald/50 pl-3"><p className="font-semibold text-foreground">🥇 DF_Secret_Ilmu_Tak_Pernah_Diajarkan — 73% budget · Rp 405K · CTR 5.41% · 3 purchases</p><p className="mt-0.5"><span className="text-emerald font-medium">Hook:</span> "Forbidden Knowledge" — loss aversion + exclusivity. Avatar feels deliberately kept ignorant. This ONE ad carries the entire campaign. <strong>Do NOT touch.</strong></p></div>
+                    <div className="border-l-2 border-emerald/50 pl-3"><p className="font-semibold text-foreground">🥈 DF_TemanCurhat_Stop_Jadi_Opsi — Rp 43K · CTR 4.48% · <span className="text-emerald">2 purchases 🛒 ← SURPRISE WINNER</span></p><p className="mt-0.5"><span className="text-emerald font-bold">CPA Rp 21,643 = cheapest in entire account.</span> "Stop being the option" self-worth trigger converts at bottom of funnel despite modest CTR. Keep alive.</p></div>
+                    <div className="border-l-2 border-emerald/30 pl-3"><p className="font-semibold text-foreground">🔥 DF_SocietyLie_Aturan_Bohong — CTR 12.41% (highest) · Rp 17.5K · budget-starved</p><p className="mt-0.5">Betrayal + Anger hook. Will surge when V3 ghosts are cleared and their micro-budget flows here.</p></div>
+                    <div className="border-l-2 border-emerald/30 pl-3"><p className="font-semibold text-foreground">💡 DF_WakeUp_Bukan_Kurang_Cantik — CTR 11.54% · Rp 12K · budget-starved</p><p className="mt-0.5">Identity reframe hook resonating. Needs budget to test conversion.</p></div>
+                    <div className="p-2 rounded-lg bg-emerald/10 text-emerald font-medium">🏆 <strong>ID VERDICT: WORKING.</strong> 6 purchases · ROAS 2.32x overall (inflated by ghost waste) → true ROAS post-purge est. 3.2x+. <strong>Scale Indonesia.</strong></div>
                 </div>
             </div>
 
-            {/* What's NOT Working */}
+            {/* V3 Ghost Purge */}
             <div className="rounded-xl bg-destructive/5 border border-destructive/20 p-4">
-                <p className="text-xs font-bold text-destructive mb-3 flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> 2. What Is NOT Working &amp; Why</p>
-                <div className="space-y-2 text-[11px] text-muted-foreground leading-relaxed">
-                    <div className="border-l-2 border-destructive/40 pl-3"><p className="font-semibold text-foreground">❌ DF_Ghosted_Lagi_Pattern_Toxic — GHOST (0 delivery) · PAUSE NOW</p><p>Zero impressions. Toxic pattern hook is too niche — avatar doesn't self-identify as victim of "pattern toxic". Pause immediately, budget flows to DF_Secret.</p></div>
-                    <div className="border-l-2 border-destructive/40 pl-3"><p className="font-semibold text-foreground">❌ DF_Drakor_Fantasy_Leading_Man — already paused (CTR 0%)</p><p>Aspirational hook confirmed failing. Passive dreaming doesn't trigger "I need this NOW" urgency.</p></div>
-                    <div className="border-l-2 border-destructive/40 pl-3"><p className="font-semibold text-foreground">❌ DF_NiceGirl_Selalu_Finish_Last — already paused (CTR 0%)</p><p>Western trope. Indonesian avatar doesn't resonate. Replaced by V2 rewrite.</p></div>
+                <p className="text-xs font-bold text-destructive mb-3 flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> 2. V3 Batch — ALL GHOST → PAUSE NOW</p>
+                <div className="space-y-1.5 text-[11px] text-muted-foreground">
+                    <p className="text-destructive font-semibold mb-2">Every V3 ad confirmed 0% CTR after multiple days of spend. All losing internal auction to DF_Secret.</p>
+                    {[
+                        "DF_V2_Kenapa_Cewek_Baik — Rp 733 · 0% CTR · 0 clicks · 13 reach",
+                        "DF_V3_Satu_Perubahan_Pria_Respect — Rp 381 · 0% CTR · 6 reach",
+                        "DF_V2_Video_Gaby_Dari_Dibuang — Rp 357 · 0% CTR · 8 reach",
+                        "DF_V3_Kenapa_Dipilih_Terakhir — Rp 343 · 0% CTR · 6 reach",
+                        "DF_V3_Cantik_Tidak_Cukup — Rp 146 · 0% CTR · 2 reach",
+                        "DF_V3_Mendingin_Tiba_V2 — Rp 108 · 0% CTR · 2 reach",
+                        "DF_V3_Respect_V2 — Rp 88 · 0% CTR · 8 reach",
+                    ].map((t, i) => <div key={i} className="border-l-2 border-destructive/40 pl-3 py-0.5 text-destructive/80">❌ {t}</div>)}
+                    <div className="mt-2 p-2 rounded-lg bg-destructive/10 text-destructive font-medium">→ Pausing all 7 frees their micro-budget to flow to DF_Secret + DF_TemanCurhat + DF_SocietyLie</div>
                 </div>
             </div>
 
-            {/* Optimization Advice */}
+            {/* Budget + Actions */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                 <div className="rounded-xl bg-accent/5 border border-accent/20 p-4">
-                    <p className="text-xs font-bold text-accent mb-3 flex items-center gap-2"><DollarSign className="w-4 h-4" /> 3. Budget Reallocation</p>
+                    <p className="text-xs font-bold text-accent mb-3 flex items-center gap-2"><DollarSign className="w-4 h-4" /> 3. Budget Strategy</p>
                     <div className="space-y-1.5 text-[11px] text-muted-foreground">
-                        <p><span className="text-emerald font-medium">Current:</span> Rp 175K / 2 days. DF_Secret = 91% budget share. ROAS 4.83x. 4 purchases.</p>
-                        <p><span className="text-accent font-medium">Next step:</span> Pause DF_Ghosted → budget flows to DF_Secret + DF_SocietyLie.</p>
-                        <p><span className="text-emerald font-medium">Scale NOW:</span> ROAS 4.83x &gt; 3x threshold ✅ — increase to <strong>Rp 150K/day</strong>. Safe to scale.</p>
-                        <p><span className="text-destructive font-medium">Never:</span> Duplicate DF_Secret — resets learning phase and kills ROAS.</p>
+                        <p><span className="text-foreground font-medium">30D overall:</span> Rp 557K · 6 purchases · ROAS 2.32x (dragged by V3 ghosts)</p>
+                        <p><span className="text-emerald font-medium">True ROAS (winners only):</span> DF_Secret + TemanCurhat → <strong className="text-emerald">≈ ROAS 3.2x</strong></p>
+                        <p><span className="text-accent font-medium">After V3 purge:</span> Overall ROAS auto-improves to 3x+ immediately</p>
+                        <p><span className="text-emerald font-bold">Scale ID to: Rp 150K–200K/day</span> — market is proven.</p>
+                        <p><span className="text-destructive font-medium">Never duplicate DF_Secret</span> — resets learning, kills ROAS.</p>
                     </div>
                 </div>
                 <div className="rounded-xl bg-primary/5 border border-primary/20 p-4">
-                    <p className="text-xs font-bold text-primary mb-3 flex items-center gap-2"><Zap className="w-4 h-4" /> 4. All Optimizations</p>
+                    <p className="text-xs font-bold text-primary mb-3 flex items-center gap-2"><Zap className="w-4 h-4" /> 4. Next Actions (Priority)</p>
                     <div className="space-y-1 text-[11px] text-muted-foreground">
-                        {["PAUSE DF_Ghosted_Lagi_Pattern_Toxic NOW (0 delivery ghost)", "Scale budget Rp 100K → Rp 150K/day (ROAS 4.83x confirmed)", "DF_SocietyLie (CTR 12.93%) will surge after ghost removal", "Test video version of DF_Secret hook — same angle, video format", "New angle: 'Ilmu yang ibumu tidak tahu' (generational betrayal)", "New angle: 'Kenapa dia bisa, kamu tidak?' (jealousy trigger)", "Check LP page speed — CPC Rp 2K is healthy, maximize conversion", "Add retargeting adset for LP viewers after Day 7"].map((t, i) => (
+                        {[
+                            "🔴 PAUSE all 7 V3 ghost ads NOW (0% CTR confirmed)",
+                            "🟢 Scale ID budget → Rp 150K–200K/day",
+                            "✅ Keep DF_TemanCurhat — CPA Rp 21K = cheapest in account",
+                            "📈 Watch DF_SocietyLie (CTR 12.41%) surge after ghost purge",
+                            "🎬 New creative: Video version of DF_Secret hook (ilmu terlarang angle)",
+                            "🧪 New angle: 'Kenapa kamu selalu jadi pilihan terakhir?' (shame trigger)",
+                            "🧪 New angle: 'Dia bukan luck — dia pakai ilmu ini' (envy + FOMO)",
+                            "📦 Retargeting adset for LP visitors after Day 10",
+                        ].map((t, i) => (
                             <div key={i} className="flex gap-2"><span className="text-primary font-bold shrink-0">{i + 1}.</span><span>{t}</span></div>
                         ))}
                     </div>
                 </div>
             </div>
 
-            {/* V2 + V3 Batch Log */}
+            {/* Log */}
             <div className="rounded-xl bg-warning/5 border border-warning/20 p-4">
-                <p className="text-xs font-bold text-warning mb-3 flex items-center gap-2">🔄 Optimization History — Updated 2026-03-04</p>
+                <p className="text-xs font-bold text-warning mb-2 flex items-center gap-2">🔄 Optimization Log — 2026-03-05</p>
                 <div className="space-y-2 text-[11px]">
                     <div className="flex items-start gap-2 p-2 rounded-lg bg-muted/30">
-                        <span className="text-[9px] px-2 py-0.5 rounded-full font-bold bg-destructive/20 text-destructive shrink-0 mt-0.5">PAUSED 3</span>
-                        <p className="text-muted-foreground">Drakor Fantasy (0% CTR) · NiceGirl (0% CTR) · Video Gaby (Rp 215) → all ghost ads removed from auction</p>
+                        <span className="text-[9px] px-2 py-0.5 rounded-full font-bold bg-destructive/20 text-destructive shrink-0 mt-0.5">DONE</span>
+                        <p className="text-muted-foreground">Paused: Drakor (0% CTR) · NiceGirl (0% CTR) · Video Gaby (ghost) · SG Campaign (Rp 36K, 0 purchases — correctly killed)</p>
                     </div>
                     <div className="flex items-start gap-2 p-2 rounded-lg bg-muted/30">
-                        <span className="text-[9px] px-2 py-0.5 rounded-full font-bold bg-emerald/20 text-emerald shrink-0 mt-0.5">+3 V2</span>
-                        <p className="text-muted-foreground">Reupload same visuals with rewritten viral copy: Leading Lady · Cewek Baik · Dari Dibuang Jadi Dikejar</p>
+                        <span className="text-[9px] px-2 py-0.5 rounded-full font-bold bg-warning/20 text-warning shrink-0 mt-0.5">⚠️ DO NOW</span>
+                        <p className="text-muted-foreground">Pause 7 V3 ghost ads · Scale ID budget to Rp 150K/day · PH decision: run 3 more days</p>
                     </div>
                     <div className="flex items-start gap-2 p-2 rounded-lg bg-muted/30">
-                        <span className="text-[9px] px-2 py-0.5 rounded-full font-bold bg-emerald/20 text-emerald shrink-0 mt-0.5">+10 V3</span>
-                        <p className="text-muted-foreground">10 new angle ads from winning pattern (Forbidden Knowledge + Fear of Loss) — all LIVE</p>
+                        <span className="text-[9px] px-2 py-0.5 rounded-full font-bold bg-emerald/20 text-emerald shrink-0 mt-0.5">WINNERS</span>
+                        <p className="text-muted-foreground">DF_Secret (ROAS 3x+, dominant) · DF_TemanCurhat (surprise: 2 purchases, CPA Rp 21K)</p>
                     </div>
                 </div>
             </div>
@@ -308,6 +328,7 @@ function IDCampaignReport() {
 }
 
 // ── Component ─────────────────────────────────────────────────
+
 export function DarkFeminineAdHub() {
     const [region, setRegion] = useState<CampaignRegion>("id");
     const [dateRange, setDateRange] = useState<DateRange>("today");
@@ -317,7 +338,7 @@ export function DarkFeminineAdHub() {
     const campaign = DF_ALL_CAMPAIGNS.find(c => c.region === region) ?? DF_ALL_CAMPAIGNS[0];
 
     // ── LIVE DATA from Meta API ────────────────────────────────
-    const { insights, ads, loading, error, lastSync, refresh } = useDarkFemLive(dateRange, region);
+    const { insights, ads, loading, error, lastSync, cacheAge, refresh } = useDarkFemLive(dateRange, region);
 
     const activeAds = ads.filter(a => a.status === "ACTIVE");
     const pausedAds = ads.filter(a => a.status === "PAUSED");
@@ -392,7 +413,7 @@ After pasting script output, analyze:
                 <div className="flex items-center gap-2">
                     <div className="flex gap-1 bg-muted/40 rounded-lg p-1">
                         {DATE_OPTIONS.map(opt => (
-                            <button key={opt.key} onClick={() => setDateRange(opt.key)}
+                            <button key={opt.key} onClick={() => setDateRange(opt.key as DateRange)}
                                 className={`px-3 py-1 text-xs rounded-md transition-all font-medium ${dateRange === opt.key ? "bg-accent/20 text-accent shadow" : "text-muted-foreground hover:text-foreground"
                                     }`}>
                                 {opt.label}
@@ -406,7 +427,13 @@ After pasting script output, analyze:
                     <div className="flex items-center gap-1.5">
                         <div className={`w-2 h-2 rounded-full ${loading ? "bg-warning animate-pulse" : error ? "bg-destructive" : "bg-emerald animate-pulse"}`} />
                         <span className="text-[10px] text-muted-foreground">
-                            {loading ? "fetching…" : error ? "error" : `Live · ${lastSync}`}
+                            {loading ? "fetching…" : error ? "error" : (
+                                cacheAge !== null && cacheAge > 0
+                                    ? <span title="Cached data — refresh to refetch from Meta">
+                                        <span className="text-warning">Cached</span> · {cacheAge}s ago · {lastSync}
+                                    </span>
+                                    : `Live · ${lastSync}`
+                            )}
                         </span>
                     </div>
                 </div>
@@ -573,7 +600,7 @@ After pasting script output, analyze:
 
                     <div className="divide-y divide-border/20">
                         {activeAds.map(ad => (
-                            <AdRow key={ad.id} ad={ad} totalSpend={totalSpend} expandedAd={expandedAd} setExpandedAd={setExpandedAd} />
+                            <AdRow key={ad.id} ad={ad} totalSpend={totalSpend} />
                         ))}
                         {pausedAds.map(ad => (
                             <PausedAdRow key={ad.id} ad={ad} />

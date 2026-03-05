@@ -4,7 +4,7 @@
 // Updated: 2026-03-04
 // ============================================================
 
-export type DateRange = "today" | "yesterday" | "last_7d" | "last_30d";
+export type DateRange = "today" | "yesterday" | "today_and_yesterday" | "last_7d" | "last_30d" | "maximum";
 export type CampaignRegion = "id" | "en" | "ph";
 
 export interface CampaignData {
@@ -178,6 +178,17 @@ export const DF_INSIGHTS: Record<DateRange, {
         spend: 381896, impressions: 3558, clicks: 207, reach: 2914,
         ctr: 5.82, cpc: 1845, cpm: 107334, purchases: 2, roas: 1.17,
         landingPageViews: 83, videoViews: 22,
+    },
+    // today_and_yesterday and maximum: always fetched live — no static snapshot
+    today_and_yesterday: {
+        spend: 0, impressions: 0, clicks: 0, reach: 0,
+        ctr: 0, cpc: 0, cpm: 0, purchases: 0, roas: 0,
+        landingPageViews: 0, videoViews: 0,
+    },
+    maximum: {
+        spend: 0, impressions: 0, clicks: 0, reach: 0,
+        ctr: 0, cpc: 0, cpm: 0, purchases: 0, roas: 0,
+        landingPageViews: 0, videoViews: 0,
     },
 };
 
