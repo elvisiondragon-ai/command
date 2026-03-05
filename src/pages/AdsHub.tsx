@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { BrandSelector, Brand, BRANDS } from "@/components/BrandSelector";
-import { DarkFeminineAdHub } from "@/components/DarkFeminineAdHub";
 import { Megaphone, Layers, ArrowRight } from "lucide-react";
+
+// ── Lazy Load Heavy Ad Hubs ──────────────────────────────────
+const DarkFeminineAdHub = lazy(() => import("@/components/DarkFeminineAdHub").then(module => ({ default: module.DarkFeminineAdHub })));
+
+const ComponentLoader = () => (
+    <div className="w-full h-64 flex items-center justify-center bg-muted/5 rounded-xl border border-border/50 animate-pulse">
+        <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Loading Ads Data...</div>
+    </div>
+);
 
 // ── brand-specific map — add new brands here as they get wired ──
 function BrandAdHub({ brand }: { brand: Brand }) {
-    if (brand.id === "brand_darkfeminine") return <DarkFeminineAdHub />;
+    if (brand.id === "brand_darkfeminine") {
+        return (
+            <Suspense fallback={<ComponentLoader />}>
+                <DarkFeminineAdHub />
+            </Suspense>
+        );
+    }
 
     // ── Placeholder for brands not yet wired ──
     return (

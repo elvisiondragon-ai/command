@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
-import { AgentMonitor } from "@/components/AgentMonitor";
-import { SocialPerformance } from "@/components/SocialPerformance";
-import { ContentPipeline } from "@/components/ContentPipeline";
-import { ResearchModule } from "@/components/ResearchModule";
-import { InsightsEngine } from "@/components/InsightsEngine";
-import { QuickCapture } from "@/components/QuickCapture";
 import { BrandSelector, Brand, BRANDS } from "@/components/BrandSelector";
 import { Layers, Megaphone } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// ── Real brand social component ────────────────────────────────
-import { DarkFeminineInstagram } from "@/components/DarkFeminineInstagram";
+// ── Lazy Load Heavy Components ───────────────────────────────
+const AgentMonitor = lazy(() => import("@/components/AgentMonitor").then(module => ({ default: module.AgentMonitor })));
+const SocialPerformance = lazy(() => import("@/components/SocialPerformance").then(module => ({ default: module.SocialPerformance })));
+const DarkFeminineInstagram = lazy(() => import("@/components/DarkFeminineInstagram").then(module => ({ default: module.DarkFeminineInstagram })));
+const ContentPipeline = lazy(() => import("@/components/ContentPipeline").then(module => ({ default: module.ContentPipeline })));
+const ResearchModule = lazy(() => import("@/components/ResearchModule").then(module => ({ default: module.ResearchModule })));
+const InsightsEngine = lazy(() => import("@/components/InsightsEngine").then(module => ({ default: module.InsightsEngine })));
+const QuickCapture = lazy(() => import("@/components/QuickCapture").then(module => ({ default: module.QuickCapture })));
+
+const ComponentLoader = () => (
+  <div className="w-full h-24 flex items-center justify-center bg-muted/5 rounded-xl border border-border/50 animate-pulse">
+    <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Loading Module...</div>
+  </div>
+);
 
 const Index = () => {
   const [activeBrand, setActiveBrand] = useState<Brand | null>(BRANDS.find(b => b.id === "brand_darkfeminine") || null);
@@ -26,7 +32,7 @@ const Index = () => {
         <BrandSelector selected={activeBrand} onChange={setActiveBrand} />
 
         {activeBrand ? (
-          <>
+          <Suspense fallback={<ComponentLoader />}>
             {/* Brand header */}
             <div className="glass-card px-5 py-4 flex items-center gap-3 border-primary/20 glow-emerald">
               <span className="text-2xl">{activeBrand.emoji}</span>
@@ -68,7 +74,7 @@ const Index = () => {
 
             {/* Insights Engine */}
             <InsightsEngine />
-          </>
+          </Suspense>
         ) : (
           /* ── Empty state ── */
           <div className="flex flex-col items-center justify-center py-24 gap-5 text-center">
@@ -104,7 +110,9 @@ const Index = () => {
         )}
 
       </div>
-      <QuickCapture />
+      <Suspense fallback={null}>
+        <QuickCapture />
+      </Suspense>
     </DashboardLayout>
   );
 };
