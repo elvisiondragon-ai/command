@@ -2,49 +2,49 @@
   "metrics": [
     {
       "label": "Amount Spent",
-      "value": "Rp 608,428",
+      "value": "Rp 1,027,965",
       "icon": "DollarSign",
       "color": "text-accent"
     },
     {
       "label": "Conv. Value",
-      "value": "Rp 1,294,000",
+      "value": "Rp 1,792,000",
       "icon": "TrendingUp",
       "color": "text-emerald"
     },
     {
       "label": "Purchases",
-      "value": "6",
+      "value": "8",
       "icon": "Target",
       "color": "text-emerald"
     },
     {
       "label": "CPR",
-      "value": "Rp 101,405",
+      "value": "Rp 128,496",
       "icon": "Megaphone",
       "color": "text-warning"
     },
     {
       "label": "Link Clicks",
-      "value": "197",
+      "value": "298",
       "icon": "MousePointer",
       "color": "text-secondary"
     },
     {
       "label": "Reach",
-      "value": "4,103",
+      "value": "5,882",
       "icon": "Megaphone",
       "color": "text-muted-foreground"
     },
     {
       "label": "Impressions",
-      "value": "5,419",
+      "value": "8,188",
       "icon": "Megaphone",
       "color": "text-muted-foreground"
     },
     {
       "label": "CPC",
-      "value": "Rp 3,088",
+      "value": "Rp 3,450",
       "icon": "Target",
       "color": "text-warning"
     },
@@ -56,7 +56,7 @@
     },
     {
       "label": "ROAS",
-      "value": "2.13x",
+      "value": "1.74x",
       "icon": "TrendingUp",
       "color": "text-emerald"
     }
@@ -65,28 +65,28 @@
     {
       "name": "DarkFem",
       "status": "active",
-      "spend": 556944.0,
-      "budget": "IDR 556,944",
-      "leads": 3824,
-      "sales": 6
+      "spend": 730268.0,
+      "budget": "IDR 730,268",
+      "leads": 4704,
+      "sales": 8
     },
     {
       "name": "darkfem_sg",
       "status": "active",
-      "spend": 35969.0,
-      "budget": "IDR 35,969",
-      "leads": 76,
+      "spend": 166151.0,
+      "budget": "IDR 166,151",
+      "leads": 173,
       "sales": 0
     },
     {
       "name": "darkfem_ph",
       "status": "active",
-      "spend": 15515.0,
-      "budget": "IDR 15,515",
-      "leads": 203,
+      "spend": 131546.0,
+      "budget": "IDR 131,546",
+      "leads": 1005,
       "sales": 0
     }
   ],
-  "period": "LAST 30D",
-  "last_updated": "2026-03-05 18:59"
+  "period": "MAXIMUM",
+  "last_updated": "2026-03-07 16:48"
 }

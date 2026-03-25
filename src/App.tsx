@@ -11,6 +11,7 @@ const AdsHubPage = lazy(() => import("./pages/AdsHub"));
 const LoginPage = lazy(() => import("./pages/Login"));
 const LostPage = lazy(() => import("./pages/lost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const AvatarPage = lazy(() => import("./pages/avatar"));
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/research" element={<ProtectedRoute><Index /></ProtectedRoute>} />
             <Route path="/insights" element={<ProtectedRoute><Index /></ProtectedRoute>} />
             <Route path="/assets" element={<ProtectedRoute><Index /></ProtectedRoute>} />
+            <Route path="/avatar" element={<ProtectedRoute><AvatarPage /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

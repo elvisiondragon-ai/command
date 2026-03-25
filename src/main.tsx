@@ -1,4 +1,4 @@
-const APP_VERSION = '2026.03.05.01'; // <-- Change this number to force an update
+const APP_VERSION = '2026.03.09.05'; // <-- Change this number to force an update
 
 if (localStorage.getItem('v_cache') !== APP_VERSION) {
   // 1. Clear all Service Workers
